@@ -2,69 +2,113 @@
   Scrivi una funzione per concatenare due stringhe ricevute come parametri, selezionando solamente i primi 2 caratteri della
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
+/*
+function concatCapStr(str1, str2) {
+  let word1 = str1.substring(0, 2);
+  let word2 = str2.substring(str2.length - 3);
+  let result = word1 + word2;
+  result = result.toUpperCase();
+  return result;
+}
+const computedStr = concatCapStr("Coca", "Cola");
+console.log("Esercizio 1: ",computedStr);
+*/
 
-const concatCapStr = (str1, str2) => {
-  concatStr = str1.substring(0, 1) + str2.slice(-3);
-  finalStr = concatStr.toUpperCase();
-  return finalStr;
-};
-concatCapStr("Coca", "Cola");
-console.log(concatCapStr);
+function concatCapStr(str1, str2) {
+  return (str1.substring(0, 2) + str2.substring(str2.length - 3)).toUpperCase();
+}
+const computedStr = concatCapStr("Coca", "Cola");
+console.log("Esercizio 1: ", computedStr);
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 {
-  const numericArray = [];
-  for (let i = 0; i <= 9; i++) {
-    const randNums = Math.floor(Math.random() * 101);
-    numericArray.push(randNums);
+  function randNumArray() {
+    const array = [];
+    for (let i = 0; i < 10; i++) {
+      const randNum = Math.floor(Math.random() * 101);
+      array.push(randNum);
+    }
+    return array;
   }
-  console.log(numericArray);
+  const randArray = randNumArray();
+  console.log("Esercizio 2: ", randArray);
 }
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
-function evenValuesArr(arr) {
-  const evenValues = arr.filter((numero) => numero % 2 === 0);
-
-  return evenValues;
+function evenFinder(array) {
+  return array.filter((number) => number % 2 === 0);
 }
-
-const numericArray = [9, 35, 83, 12, 7, 52, 6];
-const evenValues = evenValuesArr(numericArray);
-console.log(evenValues);
+let numericArray = [34, 52, 10, 21, 17, 3, 97];
+let evenNums = evenFinder(numericArray);
+console.log("Esercizio 3: ", evenNums);
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-const numericValues[9, 35, 83, 12, 7, 52, 6];
+
+function arraySum(array) {
+  let sum = 0;
+  array.forEach(function (element) {
+    if (typeof element === "number" && !isNaN(element)) {
+      sum += element;
+    }
+  });
+  return sum;
+}
+const result = arraySum(numericArray);
+console.log("Esercizio 4: ", result);
+
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
+const sum2 = numericArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log("Esercizio 5: ", sum2);
 
-
-
-/*s
+/*
 function sum2(...args) {
   return args.reduce((total, amount) => total + amount);
 }
-
 console.log(sum2(6, 8));
+
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+
+const numbers1 = [6, 18, 4, 33];
+const multiplyNums = function (n) {
+  return numbers1.map((numbers) => numbers * n);
+};
+console.log("Esercizio 6: ", multiplyNums(3));
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
 
+const strArray = ["Benvenuto", "in", "EPICODE"];
+let strLength = strArray.map((word) => word.length);
+
+console.log("Esercizio 7: ", strLength);
+
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+
+function oddNumsOnly() {
+  let oddNums = [];
+  for (let i = 1; i < 100; i++) {
+    if (i % 2 !== 0) {
+      oddNums.push(i);
+    }
+  }
+  return oddNums;
+}
+console.log("Esercizio 8: ", oddNumsOnly());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
