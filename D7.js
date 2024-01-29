@@ -14,33 +14,43 @@ console.log(concatCapStr);
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
-
-const numericArray = [];
-for (let i = 0; i <= 9; i++) {
-  const randNums = Math.floor(Math.random() * 101);
-  numericArray.push(randNums);
+{
+  const numericArray = [];
+  for (let i = 0; i <= 9; i++) {
+    const randNums = Math.floor(Math.random() * 101);
+    numericArray.push(randNums);
+  }
+  console.log(numericArray);
 }
-console.log(numericArray);
-
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
+function evenValuesArr(arr) {
+  const evenValues = arr.filter((numero) => numero % 2 === 0);
 
-function evenValuesFilter(arr) {
-  const evenValues = arr.filter(num % 2 === 0);
   return evenValues;
 }
-const numArr = [4, 89, 60, 27, 11, 3];
-const evenValues = evenValuesFilter(numArr);
+
+const numericArray = [9, 35, 83, 12, 7, 52, 6];
+const evenValues = evenValuesArr(numericArray);
 console.log(evenValues);
 
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+let sum = 0;
+let sumResult = numericArray.forEach((num) => (sum += num));
+console.log(sumResult);
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+
+function sum2(...args) {
+  return args.reduce((total, amount) => total + amount);
+}
+
+console.log(sum2(6, 8));
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
