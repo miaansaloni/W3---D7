@@ -38,14 +38,15 @@ console.log(evenValues);
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-let sum = 0;
-let sumResult = numericArray.forEach((num) => (sum += num));
-console.log(sumResult);
-
+const numericValues[9, 35, 83, 12, 7, 52, 6];
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 
+
+
+
+/*s
 function sum2(...args) {
   return args.reduce((total, amount) => total + amount);
 }
@@ -180,9 +181,30 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 
+function oldestMovieFinder(movieArr) {
+  let oldestMovie = movieArr[0];
+  movieArr.forEach((movie) => {
+    if (parseInt(movie.Year) < parseInt(oldestMovie.Year)) {
+      oldestMovie = movie;
+    }
+  });
+
+  return oldestMovie;
+}
+
+const oldestMovie = oldestMovieFinder(movies);
+console.log(oldestMovie);
+
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+
+function totalMovies(movieArr) {
+  const movieNumber = movieArr.length;
+  return movieNumber;
+}
+const totalMovieNumber = totalMovies(movies);
+console.log(totalMovieNumber);
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
