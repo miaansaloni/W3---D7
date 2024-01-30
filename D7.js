@@ -102,6 +102,7 @@ console.log("Esercizio 7: ", strLength);
 function oddNumsOnly() {
   let oddNums = [];
   for (let i = 1; i < 100; i++) {
+    //for (let i=1;i<=99;i+=2)
     if (i % 2 !== 0) {
       oddNums.push(i);
     }
@@ -239,6 +240,29 @@ function oldestMovieFinder(movieArr) {
 const oldestMovie = oldestMovieFinder(movies);
 console.log(oldestMovie);
 
+
+////////ALTERNATIVA////////
+{
+  const oldestMovie= function(array){
+
+    let result=array[0]
+
+    if(Array.isArray(array)){
+      for(lei i=1; i<array.length; i++;)
+      const movie=array[i]
+      const currentYear=parseInt(movie.Year)
+
+      if(currentYear<result){
+      result=movie
+      }
+
+    }
+    return result
+}
+
+}
+console.log(oldestMovie(movies))
+
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
@@ -250,12 +274,20 @@ function totalMovies(movieArr) {
 const totalMovieNumber = totalMovies(movies);
 console.log(totalMovieNumber);
 
+
+////ALTERNATIVA
+
+const nMovies=(arr=>arr.length)
+console.log(nMovies(movies))
+
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 
 const movieTitles = movies.map((movie) => movie.Title);
 console.log("Esercizio 11: ", movieTitles);
+
+
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
@@ -283,6 +315,22 @@ console.log("Esercizio 13: ", yearsSum);
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+const getMovieById=(arr, id)=>arr.find(movie=> movie.imbdID===id)
+
+console.log(getMovieById(movies, "tt0087365"))
+
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+const getMovieByYear=(arr, year)=>{
+  const yearToNum = parseInt(year)
+
+  if(typeof year==="number" && !isNaN(year)){
+    return arr.findIndex(movie=>parseInt(movie.Year)===year)
+  }else{
+    return -1;
+  }
+}
+const indexFound=getMovieByYear(movies, "2005")
+
+console.log(indexFound!==-1? movies[indexFound]:"non abbiamo trovato un film per quell'anno")
